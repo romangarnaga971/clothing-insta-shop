@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TEPLO: пуховики</title>
+  <meta name="description" content="TEPLO: короткий пуховик із гусячим пухом у чотирьох кольорах. Замовлення через Direct.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three/three.module.js" } }
+  </script>
+</head>
+<body>
+  <main id="top">
+    <section class="scene">
+      <div class="scene__pin">
+        <div class="frame" aria-hidden="true"></div>
+        <div class="frost" aria-hidden="true"></div>
+        <p class="temp" aria-hidden="true"><span class="temp__value">+5</span>°</p>
+        <canvas class="stage" aria-hidden="true"></canvas>
+
+        <header class="nav">
+          <a class="nav__logo" href="#top">TEPLO</a>
+          <nav class="nav__links">
+            <a class="is-active" href="#top" data-i18n="nav.jacket"></a>
+            <a href="#feed" data-i18n="nav.feed"></a>
+            <a href="#order" data-i18n="nav.order"></a>
+          </nav>
+          <div class="nav__lang" role="group" aria-label="Language">
+            <button type="button" data-lang="uk">UA</button>
+            <button type="button" data-lang="en">EN</button>
+          </div>
+        </header>
+
+        <div class="shop">
+          <div class="shop__left">
+            <div class="arrows">
+              <button type="button" class="arrow" data-step="-1" data-i18n-label="shop.prev">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+              </button>
+              <button type="button" class="arrow" data-step="1" data-i18n-label="shop.next">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+            <h1 data-i18n="hero.title"></h1>
+            <p class="shop__text" data-i18n="hero.text"></p>
+            <a class="btn" href="#order" data-i18n="hero.cta"></a>
+          </div>
+
+          <div class="shop__right">
+            <p class="shop__price"><span data-i18n="shop.price"></span><s data-i18n="shop.old"></s></p>
+            <p class="shop__color"></p>
+            <fieldset class="sizes">
+              <legend data-i18n="shop.size"></legend>
+              <label><input type="radio" name="size" value="S"><span>S</span></label>
+              <label><input type="radio" name="size" value="M" checked><span>M</span></label>
+              <label><input type="radio" name="size" value="L"><span>L</span></label>
+              <label><input type="radio" name="size" value="XL"><span>XL</span></label>
+            </fieldset>
+          </div>
+
+          <button type="button" class="next" data-step="1" data-i18n-label="shop.next">
+            <img alt="">
+          </button>
+          <p class="shop__handle">@teplo.demo</p>
+        </div>
+
+        <article class="panel"><h2 data-i18n="story.a.title"></h2><p data-i18n="story.a.text"></p></article>
+        <article class="panel"><h2 data-i18n="story.b.title"></h2><p data-i18n="story.b.text"></p></article>
+        <article class="panel"><h2 data-i18n="story.c.title"></h2><p data-i18n="story.c.text"></p></article>
+      </div>
+    </section>
+
+    <section class="look">
+      <img src="assets/img/C-06.webp" data-i18n-alt="look.alt" loading="lazy">
+      <p data-i18n="look.text"></p>
+    </section>
+
+    <section class="feed" id="feed">
+      <div class="profile">
+        <div class="profile__ava" aria-hidden="true">T</div>
+        <div>
+          <h2>teplo.demo</h2>
+          <p data-i18n="feed.bio"></p>
+        </div>
+      </div>
+      <ul class="highlights">
+        <li><button type="button" data-story="size"><i aria-hidden="true">XL</i><span data-i18n="hl.size"></span></button></li>
+        <li><button type="button" data-story="delivery"><i aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7zM7 19a2 2 0 100-4 2 2 0 000 4zM17 19a2 2 0 100-4 2 2 0 000 4z"/></svg>
+        </i><span data-i18n="hl.delivery"></span></button></li>
+        <li><button type="button" data-story="care"><i aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3s7 7 7 12a7 7 0 01-14 0c0-5 7-12 7-12z"/></svg>
+        </i><span data-i18n="hl.care"></span></button></li>
+        <li><button type="button" data-story="reviews"><i aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>
+        </i><span data-i18n="hl.reviews"></span></button></li>
+      </ul>
+      <div class="feed__grid"></div>
+    </section>
+
+    <section class="order" id="order">
+      <h2 data-i18n="order.title"></h2>
+      <ol class="order__steps">
+        <li data-i18n="order.1"></li>
+        <li data-i18n="order.2"></li>
+        <li data-i18n="order.3"></li>
+      </ol>
+      <button type="button" class="btn btn--direct" data-i18n="order.cta"></button>
+      <p class="order__status" role="status"></p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span data-i18n="foot.demo"></span>
+    <span>2026</span>
+  </footer>
+
+  <dialog class="story">
+    <div class="story__bars" aria-hidden="true"></div>
+    <button type="button" class="story__close" data-i18n-label="story.close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+    <div class="story__body" aria-live="polite"></div>
+    <button type="button" class="story__tap story__tap--prev" data-i18n-label="shop.prev"></button>
+    <button type="button" class="story__tap story__tap--next" data-i18n-label="shop.next"></button>
+  </dialog>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
